@@ -15,7 +15,7 @@ count_word_100_svc(params *argp, struct svc_req *rqstp)
 {
 	static result  res;
 	printf("SERVER WORKING\n"); 
-        res.count = countWords(argp->data.data_val); 
+    res.count = countWords(argp->data.data_val); 
 	res.occurrences = countOccurrences(argp->data.data_val, argp->word.word_val); 
 	return &res; 
 }

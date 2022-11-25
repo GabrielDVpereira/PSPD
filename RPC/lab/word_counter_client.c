@@ -31,25 +31,25 @@ result res = { 0, 0 };
 int
 main (int argc, char *argv[])
 {
-        if (argc < 4) {
-                printf ("usage: %s word file host1 host2\n", argv[0]);
-                exit (1);
-        }
+    if (argc < 4) {
+        printf ("usage: %s word file host1 host2\n", argv[0]);
+        exit (1);
+    }
 
 
 	int nWorkers = argc - 3;
 	pthread_t *tids = start_workers(nWorkers, argv + 1);
 	wait_workers(nWorkers, tids);	
 
-        printf("occur: %d, count: %d \n", res.occurrences, res.count);
-        return 0;
+    printf("Ocorrencias da palavra %s: %d, Numero total de palavras no arquivo: %d \n", argv[1] ,res.occurrences, res.count);
+    return 0;
 }
 
 
 pthread_t* start_workers(int nWorkers, char *argv[]) {
-        printf("start worder \n");  
+    printf("start worder \n");  
 	pthread_t *tids = malloc(nWorkers * sizeof(pthread_t));
-        WorkerArgs *workersArgs = malloc(nWorkers * sizeof(WorkerArgs));
+    WorkerArgs *workersArgs = malloc(nWorkers * sizeof(WorkerArgs));
 
 	char * word = argv[0]; 
 	char * filename = argv[1]; 
@@ -58,10 +58,10 @@ pthread_t* start_workers(int nWorkers, char *argv[]) {
 	int buffer_len = strlen(buffer); 
 	int word_len = strlen(word); 
         
-	 if(workersArgs == NULL || tids == NULL || buffer == NULL) {
-                printf("Memomry error\n");
-                exit(0);
-        }
+	if(workersArgs == NULL || tids == NULL || buffer == NULL) {
+        printf("Memomry error\n");
+        exit(0);
+    }
 
 
 	int workerDataLen = buffer_len / nWorkers; 
