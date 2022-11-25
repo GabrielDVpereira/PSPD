@@ -6,6 +6,7 @@
 
 #include "word_counter.h"
 #include <string.h>
+#include <stdio.h>
 
 int countOccurrences(char * str, char * toSearch); 
 int countWords(char * str); 

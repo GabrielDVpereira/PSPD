@@ -8,7 +8,7 @@
 #include <semaphore.h>
 #include <float.h>
 #include <math.h>
-
+#include <string.h>
 
 
 char * read_file(char*);

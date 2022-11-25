@@ -21,7 +21,7 @@ OBJECTS_SVC = $(SOURCES_SVC.c:%.c=%.o) $(TARGETS_SVC.c:%.c=%.o)
 # Compiler flags 
 
 CFLAGS += -g -lm -pthread -I/usr/include/tirpc/ -D MAXDATA=$(MAXDATA)
-LDLIBS += -lnsl
+LDLIBS += 
 RPCGENFLAGS = -b
 
 # Targets 
