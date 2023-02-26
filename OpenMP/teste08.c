@@ -44,8 +44,8 @@ int main(void) {
     omp_set_num_threads(3);
 
     int sum = 0; 
-    #pragma omp parallel for
-    for(int i = offset; i < TAM; i++){
+    #pragma omp parallel for // cada exeucao do for vai ir para uma thread especifica
+    for(int i = 0; i < TAM; i++){
             c[i] = a[i] + b[i];
 
             #pragma omp critical // torna o comando como uma area critica, ou seja processos n pode mexer ao mesmo tempo
@@ -76,7 +76,7 @@ int main(void) {
 
     int sum = 0; 
     #pragma omp parallel for
-    for(int i = offset; i < TAM; i++){
+    for(int i = 0; i < TAM; i++){
             c[i] = a[i] + b[i];
             
             #pragma omp atomic // cria area critica a nivel de hardware
@@ -113,7 +113,7 @@ int main(void) {
         int soma_local = 0; 
 
         #pragma omp for
-        for(int i = offset; i < TAM; i++){
+        for(int i = 0; i < TAM; i++){
             c[i] = a[i] + b[i];            
             soma_local+=c[i];
         }

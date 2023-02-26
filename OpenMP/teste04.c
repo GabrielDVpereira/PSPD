@@ -5,11 +5,13 @@
  * EX: Construir um programa que consiga informar quantas execucoes aconteceram em cada thread
  * */ 
 
+#define NUM_OF_THREAD 6
+
 int main(void){
 
-    omp_set_num_threads(6); // setting the number of threads of the system
+    omp_set_num_threads(NUM_OF_THREAD); // setting the number of threads of the system
     
-    int hash[6] = {0,0,0,0,0,0}; // shared among the threads 
+    int hash[NUM_OF_THREAD] = {0,0,0,0,0,0}; // shared among the threads 
 
     #pragma omp parallel 
     {    
@@ -22,7 +24,7 @@ int main(void){
         }
     } /* End of parallel area */
 
-    for(int i = 0; i < 6; i++){
+    for(int i = 0; i < NUM_OF_THREAD; i++){
         printf("Thread: %d, executions: %d", i, hash[i]);
     }
     return 0;

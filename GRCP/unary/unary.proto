@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package unary;
+
+service Unary{
+ rpc GetServerResponse(Message) returns (MessageResponse) {}
+
+}
+
+message Message{
+ string word = 1;
+ string data = 2; 
+}
+
+message MessageResponse{
+ int32 ocurr = 1;
+ int32 count = 2;
+}
