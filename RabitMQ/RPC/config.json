@@ -1,0 +1,4 @@
+{
+    "url": "amqp://localhost", 
+    "queueName": "rpc_queue"
+}
